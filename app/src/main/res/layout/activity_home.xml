@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/ic_loginid_logo"/>
+
+    <LinearLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/verifyWelcomeText"
+            android:textSize="20dp"
+            >
+        </TextView>
+        <!--
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonRegistrationCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Another Device" />
+        />-->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonAuthentication"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Re-authentication" />
+        />
+
+        <!--
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonTxConfirmation"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Transaction Confirmation" />
+        />
+        -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonLogout"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Logout" />
+        />
+
+
+    </LinearLayout>
+
+</LinearLayout>

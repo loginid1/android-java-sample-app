@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">JavaSampleApp</string>
+    <string name="hint_username_text">Username</string>
+</resources>

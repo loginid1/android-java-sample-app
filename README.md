@@ -1,6 +1,6 @@
 # android-java-sample-app
 
-Replace clientId and baseURL
+Replace clientId and baseURL in ApplicationData
 
 ``` java
 package api.login.java.sample;

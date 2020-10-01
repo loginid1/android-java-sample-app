@@ -1,8 +1,5 @@
 package api.login.java.sample;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +8,9 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -32,18 +32,12 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        /**
-         * check fido capability
-         *
-         */
-
+        //check fido capability
         handleCheckDeviceCompatibility();
 
-        /**
-         * check if signin
-         */
 
-        if(LoginApi.client().hasAccount() && LoginApi.client().isLoggedIn()){
+        //check if signedIn
+        if (LoginApi.client().hasAccount() && LoginApi.client().isLoggedIn()) {
             // redirect user to home page directly
             goToHome();
             return;
@@ -84,9 +78,9 @@ public class LoginActivity extends AppCompatActivity {
                 Log.i(TAG, "Fido is missing enrolment");
 
                 StringBuilder featureSet = new StringBuilder();
-                int i=0;
-                for(String feature : featureList){
-                    if(i!=0){
+                int i = 0;
+                for (String feature : featureList) {
+                    if (i != 0) {
                         featureSet.append("|");
                     }
                     featureSet.append(feature);
@@ -140,11 +134,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-
     /**
      * function to handle register button event
      */
-    private void handleRegisterClick(){
+    private void handleRegisterClick() {
 
         final RegisterCallback registerCallback = new RegisterCallback() {
 
@@ -164,12 +157,12 @@ public class LoginActivity extends AppCompatActivity {
         };
 
         final TextInputEditText usernameInputText = findViewById(R.id.usernameInputText);
-        String username = usernameInputText.getText().toString();
-        if (TextUtils.isEmpty(username)){
+        if (usernameInputText.getText() == null || TextUtils.isEmpty(usernameInputText.getText().toString())) {
             Toast toast = Toast.makeText(LoginActivity.this, "Username is missing!!! ", Toast.LENGTH_LONG);
             toast.setGravity(Gravity.TOP, 0, 48);
             toast.show();
         } else {
+            String username = usernameInputText.getText().toString();
             LoginApi.client().registerWithUsername(LoginActivity.this, username, registerCallback);
         }
     }
@@ -197,20 +190,20 @@ public class LoginActivity extends AppCompatActivity {
         };
 
         final TextInputEditText usernameInputText = findViewById(R.id.usernameInputText);
-        String username = usernameInputText.getText().toString();
-        if (TextUtils.isEmpty(username)){
+        if (usernameInputText.getText() == null || TextUtils.isEmpty(usernameInputText.getText().toString())) {
             Toast toast = Toast.makeText(LoginActivity.this, "Username is missing!!! ", Toast.LENGTH_LONG);
             toast.setGravity(Gravity.TOP, 0, 48);
             toast.show();
         } else {
+            String username = usernameInputText.getText().toString();
             LoginApi.client().login(LoginActivity.this, username, loginCallback);
         }
 
     }
 
-    private void goToHome(){
+    private void goToHome() {
         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);
         finish();
     }

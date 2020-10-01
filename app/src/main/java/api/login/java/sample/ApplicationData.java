@@ -12,7 +12,7 @@ public class ApplicationData extends Application {
         //Create clientId and baseURL from developer console under Native Integration
         final String clientId = "<enter client api key here>";
         final String baseURL = "<enter base url here>";
-        LoginApi.client().configure(this,clientId,baseURL);
+        LoginApi.client().configure(this, clientId, baseURL);
 
     }
 }

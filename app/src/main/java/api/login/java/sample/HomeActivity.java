@@ -8,15 +8,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import login.api.LoginApi;
 import login.api.LoginCallback;
-import login.api.TransactionConfirmationCallback;
 import login.api.client.LoginResponse;
-import login.api.client.TransactionConfirmationResponse;
-import login.api.client.TransactionPayload;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -62,7 +58,7 @@ public class HomeActivity extends AppCompatActivity {
     /**
      * function to handle re-authenticate button event.
      */
-    private void handleLoginClick(){
+    private void handleLoginClick() {
         final LoginCallback loginCallback = new LoginCallback() {
             @Override
             public void onComplete(LoginResponse response) {
@@ -81,19 +77,19 @@ public class HomeActivity extends AppCompatActivity {
             }
 
         };
-        LoginApi.client().login(this,  loginCallback);
+        LoginApi.client().login(this, loginCallback);
 
     }
 
-    private void handleLogoutClick(){
+    private void handleLogoutClick() {
         LoginApi.client().logout();
         goToLogin();
     }
 
 
-    private void goToLogin(){
+    private void goToLogin() {
         Intent intent = new Intent(this, LoginActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);
         finish();
     }
